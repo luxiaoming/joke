@@ -1,8 +1,9 @@
 # joke
 一个笑话app
+
+
 ![](http://upload-images.jianshu.io/upload_images/1603789-9b84fe9e340099fb?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-一个笑话app
 
 基于  Dagger2 + RxJava + Retrofit + Material Design + MVVM  的一个笑话app
 
@@ -14,6 +15,7 @@
 ![](http://upload-images.jianshu.io/upload_images/1603789-28210588c35aeab1?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 基本是一个MVVM的演示app，代码不太标准，自己过滤阅读了。
+
 ***其中里面资源：***
 
 笑话从百度api拿到
