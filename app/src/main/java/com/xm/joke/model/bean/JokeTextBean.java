@@ -101,7 +101,7 @@ public class JokeTextBean {
             this.contentlist = contentlist;
         }
 
-        public static class ContentlistBean {
+        public static class ContentlistBean extends BaseBean{
             private String ct;
             private String text;
             private String title;

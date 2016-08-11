@@ -21,12 +21,14 @@ public abstract class AbsRecyclerViewModel<T> extends BaseObservable {
     @Bindable
     public boolean loading = false;
 
-    public List<T> getData() {
-        return data;
-    }
 
     public void setData(List<T> data) {
         this.data = data;
+    }
+
+
+    public List<T> getData() {
+        return data;
     }
 
     public int getFooterStatus() {

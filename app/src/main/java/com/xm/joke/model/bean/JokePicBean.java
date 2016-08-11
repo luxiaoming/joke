@@ -105,7 +105,7 @@ public class JokePicBean {
             this.contentlist = contentlist;
         }
 
-        public static class ContentlistBean {
+        public static class ContentlistBean extends BaseBean {
             private String ct;
             private String img;
             private String title;

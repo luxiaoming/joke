@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="true"
+        app:closeDraw="@{viewModel.closeDraw}"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.CoordinatorLayout
@@ -71,22 +72,29 @@
                 app:onPageListener="@{viewModel.onPageListener}" />
 
         </android.support.design.widget.CoordinatorLayout>
-
         <LinearLayout
             android:layout_width="320dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="@android:color/holo_purple"
+            android:background="@android:color/white"
             android:clickable="true"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="@color/colorPrimary"
                 android:clickable="true"
                 android:fitsSystemWindows="true"
+                android:background="@color/colorPrimary"
                 android:padding="16dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerInside"
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@+id/iv_avatar"
+                    android:layout_marginBottom="10dp"
+                    android:src="@mipmap/ic_launcher"/>
 
                 <TextView
                     android:id="@+id/iv_avatar"
@@ -94,8 +102,8 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/tv_username"
                     android:text="@string/app_name"
-                    android:textColor="@android:color/holo_purple"
-                    android:textSize="48sp"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="40sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -105,25 +113,38 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="10dp"
                     android:text="332324956@qq.com"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/holo_green_light"
                     android:textSize="16sp" />
 
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_github"
+                android:id="@+id/text_mode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/ic_github"
-                android:drawablePadding="32dp"
+                android:drawablePadding="10dp"
                 android:gravity="center_vertical"
                 android:padding="16dp"
-                android:text="Github"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:drawableLeft="@mipmap/text"
+                android:text="文本模式"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18sp"
+                android:onClick="@{(view)->viewModel.onclick(view)}"
+                />
+            <TextView
+                android:id="@+id/pic_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:drawableLeft="@mipmap/pic"
+                android:text="图片模式"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18sp"
+                android:onClick="@{(view)->viewModel.onclick(view)}"
                 />
         </LinearLayout>
-
     </android.support.v4.widget.DrawerLayout>
 
 </layout>

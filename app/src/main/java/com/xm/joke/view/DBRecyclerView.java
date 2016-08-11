@@ -1,15 +1,19 @@
 package com.xm.joke.view;
 
 import android.databinding.BindingAdapter;
+import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.liuguangqiang.support.widgets.recyclerview.SuperRecyclerView;
 import com.liuguangqiang.support.widgets.recyclerview.adapter.AbsRVAdapter;
 import com.xm.joke.R;
+import com.xm.joke.model.bean.BaseBean;
 import com.xm.joke.model.bean.JokeTextBean;
 
 import java.util.List;
@@ -27,7 +31,7 @@ public class DBRecyclerView {
     }
 
     @BindingAdapter({"data"})
-    public static void bindData(SuperRecyclerView recyclerView, List<JokeTextBean.ShowapiResBodyBean.ContentlistBean> data) {
+    public static void bindData(SuperRecyclerView recyclerView, List<BaseBean> data) {
         recyclerView.notifyDataSetChanged();
         recyclerView.setIsLoading(false);
     }
@@ -50,7 +54,7 @@ public class DBRecyclerView {
 
     @BindingAdapter({"htmltext"})
     public static void htmltext(TextView textView, String text) {
-        if (!text.isEmpty()) {
+        if (text==null || !text.isEmpty()) {
             textView.setText(Html.fromHtml(text));
         }
     }
@@ -58,6 +62,12 @@ public class DBRecyclerView {
     @BindingAdapter({"imageUrl"})
     public static void loadImage(ImageView iv, String imageUrl) {
         if (!TextUtils.isEmpty(imageUrl))
-            Glide.with(iv.getContext()).load(imageUrl).into(iv);
+            Glide.with(iv.getContext()).load(imageUrl).diskCacheStrategy(DiskCacheStrategy.ALL).into(iv);
+    }
+
+
+    @BindingAdapter({"closeDraw"})
+    public static void closeDraw(DrawerLayout dl, boolean is) {
+       dl.closeDrawer(Gravity.LEFT);
     }
 }
